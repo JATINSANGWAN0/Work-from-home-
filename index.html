@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Work From Home | Ghar baithe earning</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color-scheme: light;
+      --primary: #22c55e;
+      --primary-dark: #16a34a;
+      --bg-soft: #f3f4f6;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #e0f2fe 0, #eef2ff 40%, #f9fafb 100%);
+      min-height: 100vh;
+      color: var(--text-main);
+      scroll-behavior: smooth;
+    }
+
+    .page {
+      max-width: 520px;
+      margin: 0 auto;
+      background: #ffffff;
+      min-height: 100vh;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16);
+      border-radius: 0 0 24px 24px;
+      overflow: hidden;
+    }
+
+    .top-bar {
+      height: 4px;
+      background: linear-gradient(90deg, #22c55e, #22c55e, #0ea5e9);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      position: relative;
+      height: 260px;
+      color: #f9fafb;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(22, 163, 74, 0.75)),
+        url("https://images.pexels.com/photos/4050291/pexels-photo-4050291.jpeg?auto=compress&cs=tinysrgb&w=1200");
+      background-size: cover;
+      background-position: center;
+      filter: brightness(1.05);
+      transform: scale(1.1);
+      animation: heroZoom 16s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroZoom {
+      0% { transform: scale(1.1) translateY(0); }
+      100% { transform: scale(1.18) translateY(-6px); }
+    }
+
+    .hero-layer {
+      position: absolute;
+      inset: 0;
+      padding: 18px 18px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .badge-live {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.55);
+      font-size: 11px;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.5);
+    }
+
+    .badge-tag {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(240, 253, 250, 0.7);
+      font-size: 11px;
+      background: rgba(15, 23, 42, 0.45);
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-title {
+      font-size: 22px;
+      font-weight: 750;
+      line-height: 1.25;
+      text-shadow: 0 12px 25px rgba(0,0,0,0.4);
+      margin-bottom: 6px;
+    }
+
+    .hero-sub {
+      font-size: 13px;
+      opacity: 0.96;
+      max-width: 280px;
+    }
+
+    .hero-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .hero-tag-chip {
+      font-size: 10px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.55);
+      border: 1px solid rgba(209, 250, 229, 0.5);
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+      font-size: 11px;
+    }
+
+    .hero-bubble {
+      padding: 5px 10px;
+      border-radius: 16px;
+      background: rgba(240, 253, 244, 0.2);
+      border: 1px solid rgba(187, 247, 208, 0.4);
+    }
+
+    .hero-arrow {
+      font-size: 18px;
+      animation: bounceY 1.2s infinite;
+    }
+
+    @keyframes bounceY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(4px); }
+    }
+
+    /* GENERAL LAYOUT */
+    main {
+      padding: 16px 16px 24px;
+      background: linear-gradient(to bottom, #f9fafb, #f3f4f6);
+    }
+
+    section {
+      margin-bottom: 22px;
+    }
+
+    .section-title {
+      font-size: 15px;
+      font-weight: 650;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-main);
+    }
+
+    .section-title span.icon {
+      font-size: 18px;
+    }
+
+    .muted {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* CHIPS / CARDS */
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ecfdf5;
+      border: 1px solid #bbf7d0;
+      color: #166534;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+    }
+
+    .pill-badge {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      border: 1px solid #bbf7d0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      background: #f0fdf4;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .mini-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 10px;
+      box-shadow: 0 6px 16px rgba(15,23,42,0.06);
+      border: 1px solid #e5e7eb;
+      font-size: 12px;
+    }
+
+    .mini-card-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 12px;
+    }
+
+    .mini-card p {
+      font-size: 11px;
+      color: #4b5563;
+      line-height: 1.4;
+    }
+
+    .step-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 8px;
+      font-size: 12px;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .step-circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: #ecfdf5;
+      border: 1px solid #bbf7d0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #16a34a;
+      flex-shrink: 0;
+    }
+
+    .step-text strong {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* FAQ */
+    .faq {
+      border-radius: 16px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      padding: 10px 12px;
+      font-size: 12px;
+    }
+
+    .faq-item + .faq-item {
+      border-top: 1px dashed #e5e7eb;
+      margin-top: 6px;
+      padding-top: 6px;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .faq-a {
+      color: #4b5563;
+    }
+
+    /* FORM CARD */
+    .form-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 12px 12px 10px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 10px 24px rgba(15,23,42,0.08);
+    }
+
+    .form-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .form-header-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: #ecfdf5;
+      border: 1px solid #bbf7d0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+    }
+
+    .form-header-text {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .form-header-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .form-row {
+      margin-bottom: 8px;
+    }
+
+    label {
+      font-size: 11px;
+      font-weight: 600;
+      margin-bottom: 3px;
+      display: block;
+      color: #374151;
+    }
+
+    label span.req {
+      color: #dc2626;
+      margin-left: 2px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 7px 9px;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      font-size: 12px;
+      outline: none;
+      background: #ffffff;
+      transition: border 0.15s ease, box-shadow 0.15s ease, transform 0.08s ease;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.25);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 60px;
+      max-height: 120px;
+    }
+
+    .hint {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .btn-main {
+      margin-top: 6px;
+      width: 100%;
+      border-radius: 999px;
+      border: none;
+      padding: 11px 14px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #ecfdf5;
+      font-weight: 650;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 0 14px 28px rgba(34, 197, 94, 0.4);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+    }
+
+    .btn-main span.icon-wa {
+      font-size: 18px;
+    }
+
+    .btn-main:active {
+      transform: translateY(1px) scale(0.98);
+      box-shadow: 0 8px 18px rgba(34, 197, 94, 0.35);
+      filter: brightness(0.97);
+    }
+
+    .footer {
+      padding: 10px 14px 16px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      background: #f9fafb;
+    }
+
+    .footer strong {
+      color: #374151;
+    }
+
+    /* SCROLL ANIMATIONS */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 0.08s; }
+    .delay-2 { transition-delay: 0.16s; }
+    .delay-3 { transition-delay: 0.24s; }
+
+    @media (max-width: 400px) {
+      .page {
+        border-radius: 0;
+        box-shadow: none;
+      }
+      .hero-layer {
+        padding: 14px 12px 16px;
+      }
+      main {
+        padding: 14px 12px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="top-bar"></div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-layer">
+      <div>
+        <div class="hero-badge-row fade-up visible">
+          <div class="badge-live">
+            <div class="badge-dot"></div>
+            Work From Home • Hiring
+          </div>
+          <div class="badge-tag">No Registration Fee</div>
+        </div>
+        <div class="hero-title fade-up delay-1 visible">
+          Ghar baithe earning ka<br />real opportunity 💰
+        </div>
+        <div class="hero-sub fade-up delay-2 visible">
+          Housewife, student, employee – sab ke liye flexible kaam, sirf phone &amp; internet se.
+        </div>
+      </div>
+
+      <div class="hero-bottom fade-up delay-3 visible">
+        <div class="hero-tags">
+          <span class="hero-tag-chip">🏠 Housewife</span>
+          <span class="hero-tag-chip">🎓 Student</span>
+          <span class="hero-tag-chip">💼 Job Wale</span>
+          <span class="hero-tag-chip">💰 Extra Income</span>
+        </div>
+        <div class="hero-cta">
+          <div class="hero-bubble">Niche form fill karo<br />WhatsApp pe details lo</div>
+          <div class="hero-arrow">⬇️</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- For Whom -->
+    <section class="fade-up">
+      <div class="section-title">
+        <span class="icon">👥</span>
+        Ye work kin ke liye perfect hai?
+      </div>
+      <p class="muted">
+        Jinko ghar se hi side income, pocket money ya extra earning chahiye, bina office jaaye.
+      </p>
+      <div class="chip-row">
+        <div class="pill">
+          <div class="pill-badge">🏠</div>
+          Housewife / Gharwali
+        </div>
+        <div class="pill">
+          <div class="pill-badge">🎓</div>
+          College / School Student
+        </div>
+        <div class="pill">
+          <div class="pill-badge">💼</div>
+          Job ya BPO employee
+        </div>
+        <div class="pill">
+          <div class="pill-badge">🧑‍💻</div>
+          Work From Home lover
+        </div>
+        <div class="pill">
+          <div class="pill-badge">💰</div>
+          Extra income chahiye
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="fade-up">
+      <div class="section-title">
+        <span class="icon">⭐</span>
+        Work details short me (English + Hindi)
+      </div>
+      <div class="card-grid">
+        <div class="mini-card">
+          <div class="mini-card-title">Pure Work From Home</div>
+          <p>Ghar se hi mobile se kaam. Kahi travel nahi, koi office reporting nahi.</p>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-title">Flexible Timing</div>
+          <p>Daily 2–3 ghante bhi kaafi. Study, job, family ke sath easy manage.</p>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-title">Basic Requirement</div>
+          <p>Normal Android phone + internet. Advanced skills ki zarurat nahi.</p>
+        </div>
+        <div class="mini-card">
+          <div class="mini-card-title">Support &amp; Guidance</div>
+          <p>Step-by-step training WhatsApp pe. Aapko hand-hold karke guide kiya jayega.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="fade-up">
+      <div class="section-title">
+        <span class="icon">📋</span>
+        Kaise kaam karega? (Simple 3 steps)
+      </div>
+      <div class="step-list">
+        <div class="step">
+          <div class="step-circle">1</div>
+          <div class="step-text">
+            <strong>Short form fill karo</strong>
+            <span>Apna naam, city, basic info likh do niche wale form me.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-circle">2</div>
+          <div class="step-text">
+            <strong>WhatsApp auto open hoga</strong>
+            <span>Saari details already type hongi, bas aapko Send press karna hai.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-circle">3</div>
+          <div class="step-text">
+            <strong>Details &amp; guidance milega</strong>
+            <span>Fir aapko WhatsApp par work ka proper detail aur next step explain kiya jayega.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="fade-up">
+      <div class="section-title">
+        <span class="icon">❓</span>
+        Common questions (FAQ)
+      </div>
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-q">Koi registration fee / charge hai?</div>
+          <div class="faq-a">Nahi. Form fill karna aur WhatsApp pe details lena totally free hai.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Kitna time dena padega daily?</div>
+          <div class="faq-a">Normally 2–3 hours ka time kaafi hota hai. Aapke schedule ke according adjust ho sakta hai.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Ye full time job hai ya part time?</div>
+          <div class="faq-a">Ye mainly part-time / extra income type work hai. Full-time banana aapke time &amp; interest pe depend karega.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM -->
+    <section id="apply" class="fade-up">
+      <div class="form-card">
+        <div class="form-header">
+          <div class="form-header-icon">📝</div>
+          <div>
+            <div class="form-header-text">Interested ho? Yaha details fill karo</div>
+            <div class="form-header-sub">Ye details seedha WhatsApp message me convert ho jayegi.</div>
+          </div>
+        </div>
+
+        <form id="applyForm">
+          <div class="form-row">
+            <label for="name">Full Name / पूरा नाम<span class="req">*</span></label>
+            <input id="name" type="text" required autocomplete="name" />
+          </div>
+
+          <div class="form-row">
+            <label for="age">Age / उम्र<span class="req">*</span></label>
+            <input id="age" type="number" min="16" max="70" required />
+          </div>
+
+          <div class="form-row">
+            <label for="city">City &amp; State / शहर<span class="req">*</span></label>
+            <input id="city" type="text" required autocomplete="address-level2" />
+          </div>
+
+          <div class="form-row">
+            <label for="role">Aap abhi kya karte ho?<span class="req">*</span></label>
+            <select id="role" required>
+              <option value="">Select – choose one</option>
+              <option>Housewife</option>
+              <option>Student</option>
+              <option>Job / Employee</option>
+              <option>Business</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="about">Short me apne baare me likho<span class="req">*</span></label>
+            <textarea id="about" required placeholder="Example: B.Com 2nd year, night shift job, housewife with kids, etc."></textarea>
+          </div>
+
+          <div class="form-row">
+            <label for="time">Free time kab milta hai? (optional)</label>
+            <input id="time" type="text" placeholder="Jaise: shaam 7–9 baje, morning, weekend only etc." />
+            <div class="hint">
+              Ye info sirf aapko better explain karne ke liye hai, publicly kahin show nahi hogi.
+            </div>
+          </div>
+
+          <button type="submit" class="btn-main">
+            <span class="icon-wa">🟢</span>
+            WhatsApp par full details chahiye
+          </button>
+
+          <div class="hint" style="margin-top:6px;">
+            Button dabane ke baad WhatsApp open hoga, message already typed rahega. Aapko बस <strong>Send</strong> press karna hai.
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Ye koi instant job letter nahi hai – pehle WhatsApp par aapko work ka detail aur process explain kiya jayega.  
+    <br /><br />
+    <strong>Privacy:</strong> Aap jo details bharoge wo sirf contact ke purpose se use hongi.
+  </footer>
+
+</div>
+
+<script>
+  // Scroll animation: fade-up on sections
+  const observed = document.querySelectorAll(".fade-up");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.18 }
+  );
+  observed.forEach((el) => observer.observe(el));
+
+  // WhatsApp form handler
+  const form = document.getElementById("applyForm");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const age = document.getElementById("age").value.trim();
+    const city = document.getElementById("city").value.trim();
+    const role = document.getElementById("role").value.trim();
+    const about = document.getElementById("about").value.trim();
+    const time = document.getElementById("time").value.trim();
+
+    if (!name || !age || !city || !role || !about) {
+      alert("Please saare *required* fields fill karein.");
+      return;
+    }
+
+    const waNumber = "918295665946"; // 91 + 8295665946
+
+    let text = "Work From Home ke liye interested hu.\n\n";
+    text += "Name: " + name + "\n";
+    text += "Age: " + age + "\n";
+    text += "City/State: " + city + "\n";
+    text += "Current Role: " + role + "\n";
+    text += "About me: " + about + "\n";
+    if (time) {
+      text += "Free time: " + time + "\n";
+    }
+    text += "\nPlease mujhe work ke full details send karein.";
+
+    const waUrl = "https://wa.me/" + waNumber + "?text=" + encodeURIComponent(text);
+    window.open(waUrl, "_blank");
+  });
+</script>
+
+</body>
+</html>
